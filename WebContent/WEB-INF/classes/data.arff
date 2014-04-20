@@ -1,0 +1,35 @@
+@relation temp
+
+@attribute sentiment_score numeric
+@attribute length_page_text numeric
+@attribute length_title_text numeric
+@attribute length_url numeric
+@attribute num_prop_nouns numeric
+@attribute num_kw_login numeric
+@attribute num_kw_logout numeric
+@attribute num_kw_createaccount numeric
+@attribute num_kw_pass numeric
+@attribute num_kw_user numeric
+@attribute num_kw_forgot numeric
+@attribute num_kw_reset numeric
+@attribute num_kw_locked numeric
+@attribute num_kw_contactadmin numeric
+@attribute num_divs numeric
+@attribute num_frames numeric
+@attribute num_forms numeric
+@attribute num_inputs numeric
+@attribute num_images numeric
+@attribute num_links numeric
+@attribute num_colors numeric
+@attribute num_text_sizes numeric
+@attribute num_text_families numeric
+@attribute has_red_text numeric
+@attribute pixel_area_images numeric
+@attribute response_code numeric
+@attribute num_cookies numeric
+@attribute num_cookie_domains numeric
+@attribute num_secure_cookies numeric
+@attribute classification {f,t}
+
+@data
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,f

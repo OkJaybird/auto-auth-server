@@ -1,7 +1,7 @@
 Auto-Auth-Server v0.1
 ============================
 
-A server and RESTful API service capable of authenticating through web portals for arbitrary websites and using machine learning techniques to determine login success / failure. Auto-Auth-Server is a Master’s project by Jay Waldron at Washington University in St. Louis. The work is covered under the Apache 2.0 license. This README deals specifically with setup instructions, but more information on the project itself, as well as a running demo server, may be found at https://www.auto-auth-server.com/
+A server and RESTful API service capable of authenticating through web portals for arbitrary websites and using machine learning techniques to determine login success / failure. Auto-Auth-Server is a Master’s project by Jay Waldron at Washington University in St. Louis. The work is covered under the Apache 2.0 license. This README deals specifically with setup instructions, but more information on the project itself ~~as well as a running demo server, may be found at https://www.auto-auth-server.com~~ is viewable here: http://htmlpreview.github.io/?https://github.com/foxfire206/Auto-Auth-Server/blob/master/WebContent/index.html.
 
 ### Quick-Start:
 To administer your own basic Auto-Auth-Server, only the portals.conf file must be modified to contain the info for the portals you’d like to authenticate with. A sample portals.conf file is provided, but look in the Important Files section of this README for how the file should be formatted. Otherwise, you can run the project like any other eclipse dynamic web project and can export it to a WAR file for more general use once your portals.conf has been configured. It’s been tested using Tomcat v7.0.

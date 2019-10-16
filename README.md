@@ -1,13 +1,13 @@
 Auto-Auth-Server v0.1
 ============================
 
-A server and RESTful API service capable of authenticating through web portals for arbitrary websites and using machine learning techniques to determine login success / failure. Auto-Auth-Server is a Master’s project by Jay Waldron at Washington University in St. Louis. The work is covered under the Apache 2.0 license. This README deals specifically with setup instructions, but more information on the project itself ~~as well as a running demo server, may be found at https://www.auto-auth-server.com~~ is viewable here: http://foxfire206.github.io
+A server and RESTful API service capable of authenticating through web portals for arbitrary websites and using machine learning techniques to determine login success / failure. Auto-Auth-Server is a Master’s project by Jay Waldron at Washington University in St. Louis. The work is covered under the Apache 2.0 license. This README deals specifically with setup instructions, but more information on the project itself ~~as well as a running demo server, may be found at https://www.auto-auth-server.com and is viewable here: http://foxfire206.github.io.~~
 
 ### Quick-Start:
 To administer your own basic Auto-Auth-Server, only the portals.conf file must be modified to contain the info for the portals you’d like to authenticate with. A sample portals.conf file is provided, but look in the Important Files section of this README for how the file should be formatted. Otherwise, you can run the project like any other eclipse dynamic web project and can export it to a WAR file for more general use once your portals.conf has been configured. It’s been tested using Tomcat v7.0.
 
 ### Specialized Models:
-Sometimes the general model can get things wrong, so it’s possible to generate specialized models used for individual portals. To do this, the database.properties file must point to a MySQL database setup for such use. A specialized model being created will search the database specified in database.properties for vectors matching the given portal_code in a table called custom_vectors. You do not need to create this yourself, and instead Custom Vector Tool will take care of all setup as long as the DB credentials have table creation permissions. See Custom Vector Tool (https://github.com/foxfire206/Auto-Auth-Server-Custom-Vector-Tool) for more info. A specialized model is a simple C4.5 decision tree that is built based entirely on cookies for the site. In general, you want to collect as many distinct feature vectors as possible using Custom Vector Tool to generate a more reliable model, but you MUST have at least one case of successful authentication and one case of unsuccessful authentication.
+Sometimes the general model can get things wrong, so it’s possible to generate specialized models used for individual portals. To do this, the database.properties file must point to a MySQL database setup for such use. A specialized model being created will search the database specified in database.properties for vectors matching the given portal_code in a table called custom_vectors. You do not need to create this yourself, and instead Custom Vector Tool will take care of all setup as long as the DB credentials have table creation permissions. See Custom Vector Tool (https://github.com/OkJaybird/auto-auth-server-custom-vector-tool) for more info. A specialized model is a simple C4.5 decision tree that is built based entirely on cookies for the site. In general, you want to collect as many distinct feature vectors as possible using Custom Vector Tool to generate a more reliable model, but you MUST have at least one case of successful authentication and one case of unsuccessful authentication.
 
 
 Important Files 
@@ -35,7 +35,7 @@ The number of minutes after which incorrect login attempts are forgiven, and the
 #### In addition to these 7 required fields, there are 2 optional ones:
 
 #### specialized_model: 
-If specified, must be "true" or "false". If omitted or explicitly set to "false", the portal uses the generic pre-generated model to classify attempted login responses. If set to “true”, a specialized model is created for page classification using only samples generated for that portal. In order to use this, MySQL must be setup and page-specific features scraped using the Custom Vector Tool (see https://github.com/foxfire206/Auto-Auth-Server-Custom-Vector-Tool for more info).
+If specified, must be "true" or "false". If omitted or explicitly set to "false", the portal uses the generic pre-generated model to classify attempted login responses. If set to “true”, a specialized model is created for page classification using only samples generated for that portal. In order to use this, MySQL must be setup and page-specific features scraped using the Custom Vector Tool (see https://github.com/OkJaybird/auto-auth-server-custom-vector-tool for more info).
 #### first_click_xpath: 
 Some pages that use AJAX to generate content on-click can obscure the login form until an initial element is clicked. If specified, the element with the given XPath is clicked first before attempting to find the other user, pass, and submit XPaths.
 
@@ -68,7 +68,7 @@ All values in the JSON object specifying a portal are string representations, an
 ```
 
 ### /WebContent/WEB-INF/classes/database.properties:
-Has the database connection information to store your specialized portal vectors if you are using specialized models. See the Custom Vector Tool project for more info (https://github.com/foxfire206/Auto-Auth-Server-Custom-Vector-Tool).
+Has the database connection information to store your specialized portal vectors if you are using specialized models. See the Custom Vector Tool project for more info (https://github.com/OkJaybird/auto-auth-server-custom-vector-tool).
 
 ### /WebContent/WEB-INF/classes/data.arff:
 The file used by WEKA to understand feature vector formatting. Do not edit.
@@ -95,7 +95,7 @@ This project relies heavily on several other open source third-party libraries a
 * MySQL Connector/J 5.1.29
 * Weka 3.7.10
 
-Outside of 3rd party dependencies, this project relies on Custom Vector Tool to generate feature vectors required to build specialized models. See https://github.com/foxfire206/Auto-Auth-Server-Custom-Vector-Tool
+Outside of 3rd party dependencies, this project relies on Custom Vector Tool to generate feature vectors required to build specialized models. See https://github.com/OkJaybird/auto-auth-server-custom-vector-tool
 
 
 Areas for Improvement
